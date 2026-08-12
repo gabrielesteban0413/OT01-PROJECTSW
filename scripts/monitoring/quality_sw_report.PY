@@ -134,6 +134,8 @@ def _agregar_errores_whitespace(jerarquia):
                 jerarquia[key]["errores"].append("TABS")
     return jerarquia
 
+ # NO BORRAR (MERGE : SYNC PORT | SMALLWORLD DIFERENTE A BASE CORPORATIVO, SYNC PORT | SMALLWORLD TRAZE INEXISTENTE , )   
+
 JERARQUIA_FIBRA = _agregar_errores_whitespace({
     1:   {"campo": "Id",                            "errores": ["DUPLICADO", "CONSECUTIVO"]},
     2:   {"campo": "Segmento",                      "errores": []},
@@ -282,7 +284,7 @@ RE_IPV4                        = re.compile(r'^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.
 PREFIJOS_EXCLUIR_VALIDACION = {"C.C", "ANT", "(SED)", "(REDP)", "COLEGIO", "TM", "EDIFICIO", "IED", "TORRE","NODO"}
 PREFIJOS_ID_SERVICIO        = ("CAV", "ID", "IP", "PI", "SEG", "TI","CAV30-C")
 PREFIJOS_SERVICE_MANAGER    = ("OC-", "C", "WO", "APR")
-PREFIJOS_EQUIPO_CENTRAL     = ("BO", "VI", "PA","BOBSH930601","BOCHHU930601","CHCHHU930601","CUZPHU930601","SOPOHU930301")
+PREFIJOS_EQUIPO_CENTRAL     = ("BO", "VI", "PA","BOBSH930601","BOCHHU930601","CHCHHU930601","CUZPHU930601","SOPOHU930301","BOCADEAMEHUC1A","BOSIBATHUC1A")
 
 UMBRAL_IGNORAR_NOMBRE_CLIENTE = 5
 

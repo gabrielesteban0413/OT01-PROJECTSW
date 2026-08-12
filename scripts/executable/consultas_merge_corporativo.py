@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 # Cargar variables de entorno
 load_dotenv()
-
+                       
 DB_CONFIG = {
     'host': os.environ.get('PGHOST', 'localhost'),
     'port': os.environ.get('PGPORT', '5432'),

@@ -1,10 +1,8 @@
 _block
     ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\database\\smallworld\\private_collections\\00_out.txt"
-    #"C:\\A_GS1_PROYECTOS\\0_Documents_gs\\src\\private_collections\\ConnSheathWithLoc\\edit\\F01_old_name.txt"
-
     vista << gis_program_manager.cached_dataset(:gis)
-    vista.checkpoint("FI_OLDNAME")
-    sheath_with_locs << vista.collection(:sheath_with_loc)
+    vista.checkpoint("pt_cmm_ms_amp")  
+    ports << vista.collection(:mit_rme_port)  
 
     archivo_fuente << external_text_input_stream.new(ruta_fuente)
     lista_modificada << rope.new()
@@ -28,16 +26,16 @@ _block
             _continue
         _endif
 
-        id_sheath_with_loc << texto[1].as_number()
-        nombre_antiguo_value << texto[2].write_string
+        id_port << texto[1].as_number()
+        comentarios << texto[2].write_string
 
-        posibles_sheath_with_locs << sheath_with_locs.select(predicate.eq(:id, id_sheath_with_loc))
-        un_sheath_with_loc << posibles_sheath_with_locs.an_element()
+        posibles_ports << ports.select(predicate.eq(:id, id_port))
+        un_port << posibles_ports.an_element()
 
-        _if un_sheath_with_loc _isnt _unset
+        _if un_port _isnt _unset
         _then
             _try
-                un_sheath_with_loc.nombre_antiguo << nombre_antiguo_value
+                un_port.comentarios << comentarios 
                 lista_modificada.add(linea + "|EXITOSO")
                 contador_exitosos << contador_exitosos + 1
             _when error
@@ -61,7 +59,7 @@ _block
     _endloop
     archivo_fuente.close()
 
-    show("--------------GS--EDIT--OLDNAME--------.")
+    show("--------------GS--EDI--CMM--------.")
     show("exitosos: ", contador_exitosos)
     show("fallidos: ", contador_fallidos)
 _endblock

@@ -1,3 +1,5 @@
+"sw - users"
+
 import pyautogui
 import pyperclip
 import win32com.client as win32
@@ -360,25 +362,13 @@ def procesar_excel():
     print(f"\nTotal de filas a procesar: {total}")
     print("[CONTROL] 0=pausa, 1=detener\n")
 
-    if input("¿Prueba solo el primer ID? (s/n): ").lower() == 's':
-        input("Prepara el SW y presiona ENTER...")
-        fila, id_texto = filas_a_procesar[0]
-        if procesar_fila(hoja, fila, id_texto, idx_owner, total, 1, es_prueba=True, excel=excel, wb=wb):
-            if total > 1 and not detener and input(f"¿Procesar las {total-1} restantes? (s/n): ").lower() == 's':
-                for i, (f, txt) in enumerate(filas_a_procesar[1:], start=2):
-                    if detener: break
-                    esperar_si_pausado()
-                    if detener: break
-                    procesar_fila(hoja, f, txt, idx_owner, total, i, es_prueba=False, excel=excel, wb=wb)
-        else:
-            print("Prueba fallida o cancelada.")
-    else:
-        input(f"Procesar {total} filas. Presiona ENTER...")
-        for i, (f, txt) in enumerate(filas_a_procesar, start=1):
-            if detener: break
-            esperar_si_pausado()
-            if detener: break
-            procesar_fila(hoja, f, txt, idx_owner, total, i, es_prueba=False, excel=excel, wb=wb)
+
+
+    for i, (f, txt) in enumerate(filas_a_procesar, start=1):
+        if detener: break
+        esperar_si_pausado()
+        if detener: break
+        procesar_fila(hoja, f, txt, idx_owner, total, i, es_prueba=False, excel=excel, wb=wb)
 
     # Restaurar configuraciones de Excel
     try:

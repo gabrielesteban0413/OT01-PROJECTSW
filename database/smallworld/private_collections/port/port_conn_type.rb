@@ -1,5 +1,5 @@
 _block
-    ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\src\\private_collections\\ConnPort\\P01_port_type.txt"
+    ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\database\\smallworld\\private_collections\\00_out.txt"
 
     vista << gis_program_manager.cached_dataset(:gis)
     vista.checkpoint("mit_rme_port")

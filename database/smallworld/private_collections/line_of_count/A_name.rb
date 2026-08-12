@@ -1,14 +1,13 @@
 _block
     ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\database\\smallworld\\private_collections\\00_out.txt"
-    #"C:\\A_GS1_PROYECTOS\\0_Documents_gs\\src\\private_collections\\ConnSheathWithLoc\\edit\\F01_old_name.txt"
 
     vista << gis_program_manager.cached_dataset(:gis)
-    vista.checkpoint("FI_OLDNAME")
-    sheath_with_locs << vista.collection(:sheath_with_loc)
+    vista.checkpoint("FI_OLDNAME_HILO")
+
+    copper_line_of_counts << vista.collection(:copper_line_of_count)
 
     archivo_fuente << external_text_input_stream.new(ruta_fuente)
     lista_modificada << rope.new()
-
     contador_exitosos << 0
     contador_fallidos << 0
 
@@ -28,16 +27,16 @@ _block
             _continue
         _endif
 
-        id_sheath_with_loc << texto[1].as_number()
-        nombre_antiguo_value << texto[2].write_string
+        id_hilo << texto[1].as_number()
+        nombre_nuevo_value << texto[2].write_string
 
-        posibles_sheath_with_locs << sheath_with_locs.select(predicate.eq(:id, id_sheath_with_loc))
-        un_sheath_with_loc << posibles_sheath_with_locs.an_element()
+        posibles_hilos << copper_line_of_counts.select(predicate.eq(:id, id_hilo))
+        un_hilo << posibles_hilos.an_element()
 
-        _if un_sheath_with_loc _isnt _unset
+        _if un_hilo _isnt _unset
         _then
             _try
-                un_sheath_with_loc.nombre_antiguo << nombre_antiguo_value
+                un_hilo.designation << nombre_nuevo_value
                 lista_modificada.add(linea + "|EXITOSO")
                 contador_exitosos << contador_exitosos + 1
             _when error
@@ -61,7 +60,7 @@ _block
     _endloop
     archivo_fuente.close()
 
-    show("--------------GS--EDIT--OLDNAME--------.")
+    show("--------------GS--EDIT--NOMBRE--HILO--------.")
     show("exitosos: ", contador_exitosos)
     show("fallidos: ", contador_fallidos)
 _endblock

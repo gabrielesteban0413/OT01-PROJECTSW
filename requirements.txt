@@ -1,3 +1,3 @@
-boto3>=1.28.0
-geopandas>=0.14.0
-pandas>=2.0.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:86dbeeb33a540a1a3eeb8334cacc3f9f633700340531cea0acd09acd12380d89
+size 49

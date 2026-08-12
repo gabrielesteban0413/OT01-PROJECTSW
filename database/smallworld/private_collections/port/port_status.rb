@@ -1,5 +1,5 @@
 _block
-    ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\scripts\\monitoring\\private_collections\\00_out.txt"
+    ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\database\\smallworld\\private_collections\\00_out.txt"
    # ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\src\\private_collections\\ConnPort\\P01_status.txt"
 
     vista << gis_program_manager.cached_dataset(:gis)

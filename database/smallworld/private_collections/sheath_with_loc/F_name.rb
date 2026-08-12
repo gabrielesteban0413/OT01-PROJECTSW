@@ -1,6 +1,5 @@
 _block
-    ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\src\\private_collections\\ConnSheathWithLoc\\edit\\F01_name.txt"
-
+    ruta_fuente << "C:\\A_GS1_PROYECTOS\\0_Documents_gs\\database\\smallworld\\private_collections\\00_out.txt"
     vista << gis_program_manager.cached_dataset(:gis)
     vista.checkpoint("sheath_with_loc")
     sheath_with_locs << vista.collection(:sheath_with_loc)
